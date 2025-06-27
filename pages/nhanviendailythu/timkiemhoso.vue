@@ -500,30 +500,13 @@ import Swal from "sweetalert2";
 import ExcelJS from "exceljs";
 import * as XLSX from "xlsx";
 const { DateTime } = require("luxon");
-import jsPDF from "jspdf";
-import "~/assets/font/OpenSans-Light-normal";
-import "~/assets/font/OpenSans-SemiBold-normal";
-import "~/assets/font/OpenSans-Bold-normal";
-import "~/assets/font/OpenSans_SemiCondensed-Italic-normal";
-import "~/assets/font/OpenSans-ExtraBold-normal";
-import "~/assets/font/OpenSans_Condensed-Bold-normal";
-import "~/assets/font/OpenSans-Regular-normal";
-import "~/assets/font/font-times-new-roman-normal";
-import "~/assets/font/Times New Roman Bold-normal";
 
-import backgroundImage from "~/assets/images/bhxh.png";
-import qrcode from "~/assets/images/QR-BHXH.png";
-
-import num2words from "vn-num2words";
-
-import editAR from "@/components/nghiepvu/editAR";
 
 export default {
   name: "DanhsachKekhaiPage",
   components: {
     ExportExcel_VNPT_D05,
     ExportExcel_Vnpt,
-    editAR,
   },
 
   data() {

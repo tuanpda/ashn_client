@@ -8,6 +8,6 @@ export default {
     port_client: 4020, // CỔNG CLIENT HƯNG NGUYÊN
     port_backend: 4019,
     host: '192.168.1.5', // MÁY CHỦ CHUNG TRÊN HỆ THỐNG PHỦ DIỄN
-    namebienlai: 'ansinhphudien',
+    namebienlai: 'ansinhhungnguyen',
     urlBienlaidientu: `http://14.224.148.17:4020/tracuubienlaidientu-ansinhhungnguyen`
 };
