@@ -3,10 +3,10 @@
     <div style="margin-top: 20px">
       <div class="columns">
         <div class="column">
-          <!-- <div
+          <div
             class="field is-grouped is-grouped-multiline is-justify-content-flex-end"
           >
-            <p class="control">
+            <!-- <p class="control">
               <button @click="addHosokekhai" class="button is-small is-success">
                 <span class="icon">
                   <i class="fas fa-pen-nib"></i>
@@ -15,14 +15,14 @@
               </button>
             </p>
             <p class="control">
-              <button class="button is-small is-info">
+              <button @click="intestBienLai" class="button is-small is-info">
                 <span class="icon">
                   <i class="fas fa-file-import"></i>
                 </span>
                 <span>Import tờ khai</span>
               </button>
-            </p>
-          </div> -->
+            </p> -->
+          </div>
         </div>
       </div>
       <div class="table_wrapper">
@@ -1483,6 +1483,7 @@ import jsPDF from "jspdf";
 import "~/assets/font/OpenSans-Bold-normal";
 import "~/assets/font/OpenSans_SemiCondensed-Italic-normal";
 import "~/assets/font/OpenSans-ExtraBold-normal";
+import "~/assets/font/Times New Roman Bold-normal";
 
 import backgroundImage from "~/assets/images/bhxh.png";
 import qrcode from "~/assets/images/QR-BHXH.png";
@@ -2119,7 +2120,7 @@ export default {
                 const maTinh = data.maTinh.replace("TTT", "");
                 const maHuyen = data.maHuyen.replace("HH", "");
                 const maXa = data.maXa
-                
+
                 // console.log("Mã tỉnh:", maTinh); // "42"
                 // console.log("Mã huyện:", maHuyen); // "449"
                 // console.log("Mã xã:", maXa); // "18754"
@@ -4219,6 +4220,41 @@ async checkFormData() {
       }
     },
 
+    // dùng để in thử
+    async intestBienLai() {
+      const data = {
+        hosoIdentity: "1750751032953-aykztybeu5m4017614355040300020117040175021992",
+        maSoBhxh: "4017614355",
+        hoTen: "Chu Thị Như",
+        soCccd: "040300020117",
+        ngaySinh: "17/08/2000",
+        gioiTinh: "Nữ",
+        soDienThoai: "0773397898",
+        nguoithutien: "Lê Thị Lý",
+        loaiDt: "BHXH Tự nguyện",
+        soTien: 517000,
+        soThang: "1",
+        tuNgay: "",
+        denNgay: "",
+        tuThang: "06/2025",
+        denThang: "06/2025",
+        maDaiLy: "DT0034",
+        tenDaiLy: "Điểm thu BHXH, BHYT Xã DiễnTrường",
+        createdBy: "24-06-2025 14:43:52",
+        sobienlai: "0000120",
+        ngaybienlai: "24-06-2025 14:43:52",
+        maloaihinh: "IS",
+        tothon: "",
+        tenquanhuyen: "Huyện Diễn Châu",
+        tentinh: "Tỉnh Nghệ An",
+        currentYear: "2025",
+        urlNameInvoice: "1750751032955-uevyxwrcsct4018457004040082012413040175021992_24_06_2025_14_43_52_0000120_Chu Thị Như",
+        cccd_nguoithutien: "040175021992"
+      };
+
+      await this.inBienLaiDientu(data);
+    },
+
     async inBienLaiDientu(data) {
       const doc = new jsPDF({
         orientation: "l",
@@ -4358,11 +4394,11 @@ async checkFormData() {
       const toadoXInfo = 10;
       const toadoYInfo = 60;
       doc.addFont(
-        "OpenSans-Bold-normal.ttf",
-        "OpenSans-Bold-normal",
+        "Times New Roman Bold-normal.ttf",
+        "Times New Roman Bold-normal",
         "bold"
       );
-      doc.setFont("OpenSans-Bold-normal", "bold");
+      doc.setFont("Times New Roman Bold-normal", "bold");
       doc.setFontSize(12);
       doc.setTextColor("#04368c");
       doc.text(`Họ và tên người nộp:`, toadoXInfo, toadoYInfo, {
@@ -4392,7 +4428,7 @@ async checkFormData() {
       if (data.maloaihinh == "AR" || data.maloaihinh == "BI") {
         noidungText = `Tiền đóng BHYT, phương thức đóng ${data.soThang} tháng, từ ngày ${data.tuNgay} đến ngày ${data.denNgay}`;
       } else {
-        noidungText = `Đóng tiền tham gia BHXH Tự nguyện`;
+        noidungText = `Tiền đóng BHXH Tự nguyện, phương thức đóng ${data.soThang} tháng, từ tháng ${data.tuThang} đến tháng ${data.denThang}`;
       }
 
       doc.text(`Nội dung: `, toadoXInfo, toadoYInfo + 16, {
