@@ -91,7 +91,7 @@
 
 <script>
 import Swal from "sweetalert2";
-
+import company from "@/config.company";
 export default {
   layout: "none",
 
@@ -123,7 +123,7 @@ export default {
         const urlNameInvoice = res.data.hs.urlNameInvoice;
 
         // encode để tránh lỗi Unicode trong URL
-        let pdfUrl = `http://14.224.148.17:4042/bienlaidientu/daky/${urlNameInvoice}.pdf`;
+        let pdfUrl = `${company.clientURL}/bienlaidientu/bienlai/${urlNameInvoice}.pdf`;
         // console.log(this.pdfSrc);
 
         // this.pdfSrc = `http://27.73.37.94:4042/bienlaidientu/0000003_Th%C3%A1i%20B%C3%A1%20Long.pdf`;
