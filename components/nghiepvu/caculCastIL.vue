@@ -2054,7 +2054,7 @@ export default {
 
               const maTinh = data.maTinh.replace("TTT", "");
               const maHuyen = data.maHuyen.replace("HH", "");
-              const maXa = data.maXa
+              const maXa = data.maXa;
 
               // console.log("Mã tỉnh:", maTinh); // "42"
               // console.log("Mã huyện:", maHuyen); // "449"
@@ -4149,7 +4149,7 @@ export default {
               urlNameInvoice: urlNameInvoice,
               maphuongan: item.maphuongan,
               cccd_nguoithutien: cccd_nguoithutien,
-                            tenphuongthucdong: item.tenphuongthucdong,
+              tenphuongthucdong: item.tenphuongthucdong,
               sothang: item.sothang,
             };
 
@@ -4186,7 +4186,7 @@ export default {
         }
       }
     },
-    
+
     async inBienLaiDientu(data) {
       // console.log("dữ liệu tạo pdf: ", data);
 
@@ -4464,25 +4464,6 @@ export default {
         fontWeight: "bold",
         align: "center",
       });
-
-      doc.setFontSize(10);
-      doc.setTextColor("#dc3545");
-      doc.text(
-        `Đã được ký bởi: CÔNG TY TNHH AN SINH 159`,
-        toadoXInfo + 100,
-        toadoYInfo + 53,
-        {
-          fontWeight: "bold",
-        }
-      );
-      doc.text(
-        `Ngày ký: ${data.ngaybienlai}`,
-        toadoXInfo + 110,
-        toadoYInfo + 58,
-        {
-          fontWeight: "bold",
-        }
-      );
 
       doc.addFont(
         "OpenSans-ExtraBold-normal.ttf",
